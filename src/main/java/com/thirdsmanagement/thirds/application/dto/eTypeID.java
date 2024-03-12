@@ -1,5 +1,5 @@
 package com.thirdsmanagement.thirds.application.dto;
 
-public enum TypeID {
+public enum eTypeID {
     CC, NIT, TI, CE, Pasaporte
 }

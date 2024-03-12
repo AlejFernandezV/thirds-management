@@ -1,5 +1,5 @@
 package com.thirdsmanagement.thirds.application.dto;
 
-public enum ThirdType {
+public enum eThirdType {
     Cliente, Proveedor, Empleado, Otro
 }

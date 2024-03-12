@@ -8,10 +8,10 @@ import java.time.LocalDate;
 public class ThirdDTO {
 
     private String thRutPath; 
-    private ThirdType thType; 
+    private eThirdType thType; 
     private String thPersonType;
     private String thGender; 
-    private TypeID tipoIdentificacion;
+    private eTypeID tipoIdentificacion;
     private String thIdNumber; 
     private String thVerificationNumber;
     private String thState; 
