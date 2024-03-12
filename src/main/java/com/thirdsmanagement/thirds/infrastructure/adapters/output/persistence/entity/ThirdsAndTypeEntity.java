@@ -1,6 +1,6 @@
-package com.thirdsmanagement.thirds.domain.model;
+package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity;
 
-import com.thirdsmanagement.thirds.domain.model.identifiers.ThirdsAndTypeId;
+import com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity.identifiers.ThirdsAndTypeId;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,13 +10,11 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "THIRDS_AND_TYPE")
 @IdClass(ThirdsAndTypeId.class)
-public class ThirdsAndTypeModel {
+public class ThirdsAndTypeEntity {
 
     @Id
     @Column(name = "th_id")
@@ -35,9 +33,9 @@ public class ThirdsAndTypeModel {
         @JoinColumn(name = "th_id", referencedColumnName = "th_id", insertable = false, updatable = false),
         @JoinColumn(name = "ent_id", referencedColumnName = "ent_id", insertable = false, updatable = false)
     })
-    private ThirdModel third;
+    private ThirdEntity third;
 
     @ManyToOne
     @JoinColumn(name = "tt_id", referencedColumnName = "tt_id", insertable = false, updatable = false)
-    private ThirdTypeModel thirdType;
+    private ThirdTypeEntity thirdType;
 }

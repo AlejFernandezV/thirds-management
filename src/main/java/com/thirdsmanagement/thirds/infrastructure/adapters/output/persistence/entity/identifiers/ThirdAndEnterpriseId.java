@@ -1,4 +1,4 @@
-package com.thirdsmanagement.thirds.domain.model.identifiers;
+package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity.identifiers;
 
 import java.io.Serializable;
 

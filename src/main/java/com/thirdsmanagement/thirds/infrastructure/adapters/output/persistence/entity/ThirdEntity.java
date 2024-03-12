@@ -1,12 +1,8 @@
-package com.thirdsmanagement.thirds.domain.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity;
 
 import java.time.LocalDate;
 
-import com.thirdsmanagement.thirds.domain.model.identifiers.ThirdAndEnterpriseId;
+import com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity.identifiers.ThirdAndEnterpriseId;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,13 +15,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "THIRDS")
 @IdClass(ThirdAndEnterpriseId.class)
-public class ThirdModel {
+public class ThirdEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +32,7 @@ public class ThirdModel {
     //Relationships
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ti_id", referencedColumnName = "ti_id")
-    private TypeIdModel typeId;
+    private TypeIdEntity typeId;
 
     /////////////////////////////////////////////////////////////////
 

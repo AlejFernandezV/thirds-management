@@ -1,4 +1,4 @@
-package com.thirdsmanagement.thirds.application.dto;
+package com.thirdsmanagement.thirds.domain.model;
 
 public enum eThirdType {
     Cliente, Proveedor, Empleado, Otro
