@@ -13,14 +13,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThirdsListedEvent {
-
-    private Long entId;
+public class ThirdGetEvent {
+    private Long thId;
     private LocalDateTime date;
 
-    public ThirdsListedEvent(Long entId){
-        this.entId = entId;
+    public ThirdGetEvent(Long thId){
+        this.thId = thId;
         this.date = LocalDateTime.now();
     }
-
 }

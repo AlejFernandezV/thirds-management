@@ -2,22 +2,32 @@ package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.e
 
 import java.time.LocalDate;
 
-import com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity.identifiers.ThirdAndEnterpriseId;
+import com.thirdsmanagement.thirds.domain.model.ePersonType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "THIRDS")
-@IdClass(ThirdAndEnterpriseId.class)
 public class ThirdEntity {
 
     @Id
@@ -25,68 +35,73 @@ public class ThirdEntity {
     @Column(unique = true, nullable = false, name = "th_id")
     private Long thId; 
 
-    @Id
-    @Column(unique = true, nullable = false, name = "ent_id")
+    @Column(name = "ent_id")
     private Long entId;
 
-    //Relationships
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ti_id", referencedColumnName = "ti_id")
+    @Enumerated(EnumType.STRING)
     private TypeIdEntity typeId;
-
-    /////////////////////////////////////////////////////////////////
 
     @Column(name = "th_ruth_path")
     private String rutPath; 
 
     @Column(name = "th_person_type")
-    private String tipoPersona; 
+    private ePersonType personType; 
 
     @Column(name = "th_names")
-    private String nombres; 
+    private String names; 
 
     @Column(name = "th_last_names")
-    private String apellidos; 
+    private String lastNames; 
     
     @Column(name = "th_social_reason")
-    private String razonSocial; 
+    private String socialReason; 
 
     @Column(name = "th_gender")
-    private String genero;
+    private String gender;
 
     @Column(name = "th_id_number")
-    private Long numeroIdentificacion;
+    private Long idNumber;
 
     @Column(name = "th_verification_number")
-    private Long digitoVerificacion; 
+    private Long verificationNumber; 
 
     @Column(name = "th_state")
-    private String estado;
+    private String state;
 
     @Column(name = "th_photo_path")
-    private String fotoPath;
+    private String photoPath;
 
     @Column(name = "th_country")
-    private String pais;
+    private String country;
 
     @Column(name = "th_province")
-    private String provincia;
+    private String province;
 
     @Column(name = "th_city")
-    private String ciudad; 
+    private String city; 
 
     @Column(name = "th_address")
-    private String direccion;
+    private String address;
 
     @Column(name = "th_phone_number")
-    private String telefono; 
+    private String phoneNumber; 
 
     @Column(name = "th_email")
     private String email; 
 
     @Column(name = "th_created_at")
-    private LocalDate fechaCreacion;
+    private LocalDate creationDate;
 
     @Column(name = "th_updated_at")
-    private LocalDate fechaActualizacion;
+    private LocalDate updateDate;
+
+    @Override
+    public String toString() {
+        return "ThirdEntity{" +
+                "thId=" + thId +
+                ", entId=" + entId +
+                ", rutPath='" + rutPath + '\''+"}";
+    }
 }

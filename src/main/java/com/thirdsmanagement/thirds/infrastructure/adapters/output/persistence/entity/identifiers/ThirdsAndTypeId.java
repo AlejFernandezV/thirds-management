@@ -2,11 +2,12 @@ package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.e
 
 import java.io.Serializable;
 
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 @Data
+@Embeddable
 public class ThirdsAndTypeId implements Serializable{
     private Long thId;
-    private Long entId;
     private Long ttId;
 }

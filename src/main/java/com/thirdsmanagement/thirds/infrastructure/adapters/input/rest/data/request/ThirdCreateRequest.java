@@ -1,9 +1,14 @@
-package com.thirdsmanagement.thirds.domain.model;
+package com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request;
 
 import java.time.LocalDate;
 
+import com.thirdsmanagement.thirds.domain.model.ePersonType;
+import com.thirdsmanagement.thirds.domain.model.eThirdGender;
+import com.thirdsmanagement.thirds.domain.model.eTypeId;
+
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,18 +20,24 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Third {
+public class ThirdCreateRequest {
+    
+    private Long thId;
 
-    private Long thId; 
+    @NotNull(message = "Enterprise ID not be empty") 
     private Long entId;
 
+    @NotNull(message = "The id type not be empty") 
     @Enumerated(EnumType.STRING)
     private eTypeId typeId;
-    
-    //private ArrayList<eThirdType> thirdTypes;
 
-    private String rutPath; 
+    
+    @NotNull(message = "The person type not be empty")  
     private ePersonType personType; 
+    /*
+    private ArrayList<eThirdType> thirdTypes;
+     */
+    private String rutPath;
     private String names; 
     private String lastNames; 
     private String socialReason; 

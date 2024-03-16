@@ -13,12 +13,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThirdInactivatedEvent {
+public class ThirdStateUpdateEvent {
+
     private Long thId;
-    private boolean thState;
+    private Boolean thState;
     private LocalDateTime date;
 
-    public ThirdInactivatedEvent(Long thId, boolean thState){
+    public ThirdStateUpdateEvent(Long thId, boolean thState){
         this.thId = thId;
         this.thState = thState;
         this.date = LocalDateTime.now();
