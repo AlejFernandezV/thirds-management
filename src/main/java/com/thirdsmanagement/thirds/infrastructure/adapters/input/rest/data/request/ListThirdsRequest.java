@@ -1,6 +1,5 @@
 package com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request;
 
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,5 @@
 package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
