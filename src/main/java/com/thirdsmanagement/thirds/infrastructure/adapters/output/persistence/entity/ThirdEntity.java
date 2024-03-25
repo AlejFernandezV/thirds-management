@@ -1,6 +1,10 @@
 package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity;
 
 import java.time.LocalDate;
+import java.util.Set;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.thirdsmanagement.thirds.domain.model.ePersonType;
 
@@ -14,6 +18,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,6 +47,9 @@ public class ThirdEntity {
     @JoinColumn(name = "ti_id", referencedColumnName = "ti_id")
     @Enumerated(EnumType.STRING)
     private TypeIdEntity typeId;
+
+    @OneToMany(mappedBy = "third")
+    private Set<ThirdsAndTypeEntity> thirdsAndTypes;
 
     @Column(name = "th_ruth_path")
     private String rutPath; 
@@ -92,16 +100,11 @@ public class ThirdEntity {
     private String email; 
 
     @Column(name = "th_created_at")
+    @CreationTimestamp
     private LocalDate creationDate;
 
     @Column(name = "th_updated_at")
+    @UpdateTimestamp
     private LocalDate updateDate;
 
-    @Override
-    public String toString() {
-        return "ThirdEntity{" +
-                "thId=" + thId +
-                ", entId=" + entId +
-                ", rutPath='" + rutPath + '\''+"}";
-    }
 }

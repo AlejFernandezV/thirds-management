@@ -2,10 +2,14 @@ package com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.data.domain.Page;
 
 import com.thirdsmanagement.thirds.domain.model.Third;
+import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request.ListThirdsRequest;
 import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request.ThirdCreateRequest;
+import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response.GetThirdResponse;
 import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response.ThirdResponse;
+import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response.ThirdsEnterpriseListResponse;
 
 @Mapper
 public interface ThirdRestMapper {
@@ -17,9 +21,12 @@ public interface ThirdRestMapper {
     @Mapping(source = "state",target = "description")
     ThirdResponse toThirdCreateResponse(Third third);
 
-    //ThirdResponse toThirdChangeStateResponse(Third third);
+    @Mapping(source = "page", target = "results")
+    ThirdsEnterpriseListResponse toListThirdsResponse(Page<Third> page);
 
-    //ThirdResponse toThirdListResponse(ArrayList<Third> list);
+    GetThirdResponse toGetThirdResponse(Third third);
+
+    //ThirdResponse toThirdChangeStateResponse(Third third);
 
     //ThirdResponse toThirdQueryResponse(Third third);
 }

@@ -1,9 +1,11 @@
 package com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import com.thirdsmanagement.thirds.domain.model.ePersonType;
 import com.thirdsmanagement.thirds.domain.model.eThirdGender;
+import com.thirdsmanagement.thirds.domain.model.eThirdType;
 import com.thirdsmanagement.thirds.domain.model.eTypeId;
 
 import jakarta.persistence.EnumType;
@@ -34,9 +36,10 @@ public class ThirdCreateRequest {
     
     @NotNull(message = "The person type not be empty")  
     private ePersonType personType; 
-    /*
-    private ArrayList<eThirdType> thirdTypes;
-     */
+    
+    @NotNull(message = "The third type cannot be empty") 
+    private Set<eThirdType> thirdTypes;
+
     private String rutPath;
     private String names; 
     private String lastNames; 

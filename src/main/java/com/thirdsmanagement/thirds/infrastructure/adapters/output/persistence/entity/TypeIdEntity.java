@@ -1,5 +1,10 @@
 package com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.entity;
 
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,4 +29,12 @@ public class TypeIdEntity {
 
     @Column(name = "ti_name")
     private String tiName;
+
+    @Column(name = "ti_created_at")
+    @CreationTimestamp
+    private LocalDate creationDate;
+
+    @Column(name = "ti_updated_at")
+    @UpdateTimestamp
+    private LocalDate updateDate;
 }

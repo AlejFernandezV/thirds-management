@@ -1,6 +1,9 @@
 package com.thirdsmanagement.thirds.domain.service;
 
-import java.util.ArrayList;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.thirdsmanagement.thirds.application.ports.input.ListThirdsUseCase;
 import com.thirdsmanagement.thirds.application.ports.output.ThirdOutputPort;
@@ -15,17 +18,19 @@ public class ListThirdsService implements ListThirdsUseCase{
     private final ThirdOutputPort thirdOutputPort;
 
     @Override
-    public ArrayList<Third> getAllThirdsBy(Long entId) {
-        ArrayList<Third> list = new ArrayList<>();
-        list = thirdOutputPort.getAllThirdsBy(entId);
-        if(list.isEmpty()){
-            throw new ThirdsNotFound("No thirds found for enterprise id " + entId);
+    public Page<Third> getAllThirdsBy(Long entId, Pageable pageable) {
+
+        Page<Third> result = thirdOutputPort.getAllThirdsBy(entId, pageable);
+
+        if(result.isEmpty()){
+            throw new ThirdsNotFound("No thirds found for enterprise id "+ entId);            
         }
-        return list;
+
+        return result;
     }
 
     @Override
-    public ArrayList<Third> getAllThirdsFilterBy(String[] filters) {
+    public Page<Third> getAllThirdsFilterBy(String[] filters) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAllThirdsFilterBy'");
     }

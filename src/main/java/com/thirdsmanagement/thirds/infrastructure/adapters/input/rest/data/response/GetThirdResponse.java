@@ -1,7 +1,12 @@
-package com.thirdsmanagement.thirds.domain.model;
+package com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response;
 
 import java.time.LocalDate;
 import java.util.Set;
+
+import com.thirdsmanagement.thirds.domain.model.ePersonType;
+import com.thirdsmanagement.thirds.domain.model.eThirdGender;
+import com.thirdsmanagement.thirds.domain.model.eThirdType;
+import com.thirdsmanagement.thirds.domain.model.eTypeId;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,9 +21,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Third {
-
-    private Long thId; 
+public class GetThirdResponse {
+        private Long thId; 
     private Long entId;
 
     @Enumerated(EnumType.STRING)

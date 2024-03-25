@@ -10,8 +10,11 @@ import com.thirdsmanagement.thirds.infrastructure.adapters.output.persistence.en
 public interface ThirdPersistenceMapper {
 
     @Mapping(source = "typeId", target = "typeId.tiId")
+    @Mapping(target = "thirdsAndTypes", ignore = true)
+    @Mapping(target = "thId", ignore = true)
     ThirdEntity toThirdEntity(Third third);
 
     @Mapping(source = "typeId.tiId", target = "typeId")
+    @Mapping(target = "thirdTypes", ignore = true)
     Third toThird(ThirdEntity thirdEntity);
 }
