@@ -5,7 +5,6 @@ import org.mapstruct.Mapping;
 import org.springframework.data.domain.Page;
 
 import com.thirdsmanagement.thirds.domain.model.Third;
-import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request.ListThirdsRequest;
 import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.request.ThirdCreateRequest;
 import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response.GetThirdResponse;
 import com.thirdsmanagement.thirds.infrastructure.adapters.input.rest.data.response.ThirdResponse;
